@@ -2150,7 +2150,7 @@ function getFetchUrl(settings) {
         return `git@${serviceUrl.hostname}:${encodedOwner}/${encodedName}.git`;
     }
     // "origin" is SCHEME://HOSTNAME[:PORT]
-    return `${serviceUrl.origin}/${encodedOwner}/${encodedName}`;
+    return `${serviceUrl}/${encodedOwner}/${encodedName}`;
 }
 exports.getFetchUrl = getFetchUrl;
 function getServerUrl(url) {
@@ -18554,7 +18554,7 @@ function getInputs() {
             (core.getInput('set-safe-directory') || 'true').toUpperCase() === 'TRUE';
         // Determine the GitHub URL that the repository is being hosted from
         result.githubServerUrl = core.getInput('github-server-url');
-        core.debug(`GitHub Host URL = ${result.githubServerUrl}`);
+        core.info(`GitHub Host URL = ${result.githubServerUrl}`);
         return result;
     });
 }
@@ -31878,7 +31878,7 @@ const urlHelper = __importStar(__webpack_require__(81));
 function getSource(settings) {
     return __awaiter(this, void 0, void 0, function* () {
         // Repository URL
-        core.info(`Syncing repository: ${settings.repositoryOwner}/${settings.repositoryName}`);
+        core.info(`Syncing repository: ${settings.repositoryOwner}/${settings.repositoryName} from ${settings.githubServerUrl}`);
         const repositoryUrl = urlHelper.getFetchUrl(settings);
         // Remove conflicting file path
         if (fsHelper.fileExistsSync(settings.repositoryPath)) {
