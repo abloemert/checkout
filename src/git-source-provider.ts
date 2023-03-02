@@ -15,7 +15,7 @@ import {IGitSourceSettings} from './git-source-settings'
 export async function getSource(settings: IGitSourceSettings): Promise<void> {
   // Repository URL
   core.info(
-    `Syncing repository: ${settings.repositoryOwner}/${settings.repositoryName}`
+    `Syncing repository: ${settings.repositoryOwner}/${settings.repositoryName} from ${settings.githubServerUrl}`
   )
   const repositoryUrl = urlHelper.getFetchUrl(settings)
 
