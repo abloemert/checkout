@@ -128,7 +128,7 @@ export async function getInputs(): Promise<IGitSourceSettings> {
 
   // Determine the GitHub URL that the repository is being hosted from
   result.githubServerUrl = core.getInput('github-server-url')
-  core.debug(`GitHub Host URL = ${result.githubServerUrl}`)
+  core.info(`GitHub Host URL = ${result.githubServerUrl}`)
 
   return result
 }
